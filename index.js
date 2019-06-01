@@ -26,12 +26,12 @@ const jwtMW = expressJWT({
 let users = [
   {
     id: 1,
-    username: 'Sam Stuggins',
+    username: 'test1',
     password: 'abc123'
   },
   {
     id: 2,
-    username: 'Sue Spriggins',
+    username: 'test2',
     password: 'def456'
   }
 ]
@@ -41,6 +41,7 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body
   // Obvs can use the DB ORM to make this comparison.
   for (let user of users) {
+    console.log('username: ', username, 'user.username:', user.username)
     if (username === user.username && password === user.password) { // should be hash pw checking
       // If all creds are correct, then:
       let token = jwt.sign({ id: user.id, username: user.username }, 'I loaf and invite my soul', { expiresIn: 129600 })
