@@ -25,7 +25,7 @@ class Login extends Component {
             />
             <input
               className='form-item'
-              placeholder='Password goes here'
+              placeholder='Password goes here...'
               name='password'
               type='password'
               onChange={this.handleChange}

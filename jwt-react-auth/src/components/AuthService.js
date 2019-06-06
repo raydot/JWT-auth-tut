@@ -7,6 +7,7 @@ export default class AuthService{
   // Initialize important variables
   constructor(domain) {
     // pretty sure this should be done with a proxy in package.json
+    //console.log('domain:', domain)
     this.domain = domain || 'http://localhost:8080'
     this.fetch = this.fetch.bind(this) // comes with the useful comment "React binding stuff"
     this.login = this.login.bind(this)
@@ -15,6 +16,8 @@ export default class AuthService{
 
   login(username, password) {
     // Get a token from api server using the fetch api
+    //console.log('login!')
+    //console.log('domain', this.domain)
     return this.fetch(`${this.domain}/login`, {
       method: 'POST',
       body: JSON.stringify({
